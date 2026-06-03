@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="main-wrapper">
+        
+        <div class="card-principal">
+            <h1>Nuestra Historia</h1>
+            <p class="subtitle">El tiempo que llevamos juntos mochi:</p>
+            
+            <div id="contador">Cargando nuestro tiempo...</div>
+
+            <hr>
+
+            <div class="sorpresa-mes">
+                <h2>Otro mes a tu lado</h2>
+                <div id="contenido-mensual">
+                    </div>
+            </div>
+        </div>
+
+        <div class="card-galeria">
+            <h3>Nuestras fotitas</h3>
+            <p class="instruccion">Dale clic para verlas en grande</p>
+            
+            <div class="grid-cuadrado-perfecto">
+                <div class="polaroid" onclick="ampliarFoto(this)">
+                    <img src="img/besoRamo.jpg" alt="Nuestro primer día">
+                    <p class="caption">Amo la sensación al besarte</p>
+                </div>
+                
+                <div class="polaroid" onclick="ampliarFoto(this)">
+                    <img src="img/pedida.jpg" alt="Cita especial">
+                    <p class="caption">La mejor decisión que tomé</p>
+                </div>
+
+                <div class="polaroid" onclick="ampliarFoto(this)">
+                    <img src="img/perrito.jpg" alt="Viaje juntos">
+                    <p class="caption">Contigo todo se siente diferente</p>
+                </div>
+
+                <div class="polaroid" onclick="ampliarFoto(this)">
+                    <img src="img/parque.jpeg" alt="Momento divertido">
+                    <p class="caption">Nunca olvido nuestras charlas en la banquita</p>
+                </div>
+            </div>
+
+            </div>
+
+        <div class="card-cartas">
+            <h3>Tus Cartas Especiales</h3>
+            <p class="instruccion">Da clic en un sobre para leer lo que te escribí:</p>
+            <div class="sobres-container">
+                <button class="btn-carta" onclick="abrirCarta(1)">✉️ Carta #1</button>
+                <button class="btn-carta" onclick="abrirCarta(2)">✉️ Carta #2</button>
+                <button class="btn-carta" onclick="abrirCarta(3)">✉️ Carta #3</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="modal-carta" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar-modal" onclick="cerrarCarta()">&times;</span>
+            <div class="carta-papel">
+                <p id="texto-carta"></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="lightbox" class="modal-lightbox" onclick="cerrarLightbox()">
+        <span class="cerrar-lightbox">&times;</span>
+        <img id="img-ampliada" src="" alt="Foto ampliada">
+        <p id="caption-ampliado"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
