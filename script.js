@@ -55,7 +55,7 @@ function cargarContenidoMensual(mesesTotales) {
         case 13:
             contenedor.innerHTML = `
                 <h3>¡Felices 13 meses mi amor! 🥰</h3>
-                <p>Un mes más sumando recuerdos hermosos a tu lado. ¡Por millones más!</p>
+                <p>¡Hola mi amor! Esta vez mi carta es un poco diferente, ya que no es física, pero es la primera que te daré por acá. Mi amor este es nuestro décimo tercer mes como pareja y estoy muy feliz de poder decirlo mi amor, muchas "parejas" apenas y llegan a amarse, mientras nosotros llevamos desde el día 1 haciendolo, demostrando y luchando por lo nuestro. Un mes más no suena tan impresionante luego de cumplir un año, pero sí que lo es porque un mes se dice muy rápido, pero son 4 semanas, 31 días y muchas historias y momentos inolvidables a tu lado, son experiencias que por más que pasen los meses, semnas y días, siguen siendo tan genuinos y especiales como la primera vez. Natalia, fuiste mi primera vez en muchas cosas, cosas que para mí son tan valiosas y únicas y de las que estoy muy agradecido con Dios por darme la oportunidad de vivir con nadie más que contigo. Te amo mucho mi amor, felices 13 meses.</p>
             `;
             break;
         default:
