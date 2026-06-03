@@ -68,9 +68,9 @@ function cargarContenidoMensual(mesesTotales) {
 
 // 3. BASE DE DATOS DE LAS CARTAS
 const misCartas = {
-    1: "¡Hola mi amor! Escribo esta primera cartita para recordarte lo mucho que significas para mí. Desde el primer día supe que serías alguien especial en mi vida...",
-    2: "Nuestra segunda carta... Me encanta mirar atrás y ver todo lo que hemos construido juntos en estos meses. Gracias por cada risa, cada abrazo y por ser mi lugar seguro. Te amo.",
-    3: "Si estás leyendo esto, es porque quería recordarte que eres la persona más hermosa de este planeta. ¡Gracias por hacerme tan feliz!"
+    1: "Hola mi amor, espero te guste mucho esta pequeña página donde podremos poner algunas de las fotos y llevar un contador de cuanto tiempo llevamos siendo pareja. TE SIXSEVEN MILLONES MÁS.",
+    2: "Cooming Soon! Te amo mochita.",
+    3: "Cooming Soon! Te amo pequitas."
 };
 
 function abrirCarta(numeroCarta) {
