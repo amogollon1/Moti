@@ -190,7 +190,7 @@ body {
     to { transform: translateY(-4px) scale(1.08); }
 }
 
-/* [Mantén aquí abajo el resto de tus estilos normales de .card-principal, .polaroid, etc.] */
+/* --- COMPONENTES PRINCIPALES --- */
 .card-principal, .card-galeria, .card-cartas {
     background-color: white;
     padding: 30px;
@@ -201,9 +201,22 @@ body {
     box-sizing: border-box;
 }
 
-h1, h2, h3 { color: #ff4d6d; margin-top: 0; margin-bottom: 10px; }
-.subtitle { font-style: italic; color: #7a7a7a; margin-bottom: 25px; }
-.instruccion { font-size: 0.85em; color: #888; margin-bottom: 20px; }
+h1, h2, h3 { 
+    color: #ff4d6d; 
+    margin-top: 0; 
+    margin-bottom: 10px; 
+}
+
+.subtitle { 
+    font-style: italic;
+    color: #7a7a7a;
+    margin-bottom: 25px; 
+}
+.instruccion { 
+    font-size: 0.85em; 
+    color: #888; 
+    margin-bottom: 20px; 
+}
 
 #contador { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 15px; }
 .tiempo-bloque { background-color: #fff0f3; padding: 10px; border-radius: 10px; border: 1px solid #ffccd5; font-size: 0.85em; color: #ff4d6d; font-weight: bold; }
@@ -211,13 +224,63 @@ h1, h2, h3 { color: #ff4d6d; margin-top: 0; margin-bottom: 10px; }
 hr { border: 0; height: 1px; background: #ffccd5; margin: 20px 0; }
 .sorpresa-mes { background-color: #fffbf0; padding: 20px; border-radius: 15px; border: 1px dashed #ffb703; }
 
-.grid-cuadrado-perfecto { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; width: 100%; margin: 0 auto; }
-.polaroid { background: white; padding: 10px 10px 15px 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); border: 1px solid #f0f0f0; transform: rotate(var(--rotation, 0deg)); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; box-sizing: border-box; }
-.polaroid:nth-child(1) { --rotation: -1.5deg; } .polaroid:nth-child(2) { --rotation: 2deg; } .polaroid:nth-child(3) { --rotation: 1deg; } .polaroid:nth-child(4) { --rotation: -2deg; }
-.polaroid:hover { transform: scale(1.05) rotate(0deg); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); z-index: 5; }
-.polaroid img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 2px; }
-.caption { font-family: 'Georgia', serif; font-size: 0.75em; color: #555; margin: 10px 0 0 0; font-style: italic; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+/* --- DISEÑO MÓVIL OPTIMIZADO PARA LA GALERÍA --- */
+.grid-cuadrado-perfecto { 
+    display: flex; 
+    flex-wrap: wrap;
+    gap: 15px; 
+    width: 100%; 
+    margin: 0 auto; 
+    justify-content: center;
+}
 
+.polaroid { 
+    background: white; 
+    padding: 10px 10px 15px 10px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); 
+    border: 1px solid #f0f0f0; 
+    transform: rotate(var(--rotation, 0deg)); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    cursor: pointer; 
+    box-sizing: border-box; 
+    width: calc(50% - 10px); /* Divide la pantalla exactamente en 2 columnas */
+    max-width: 220px;
+    display: flex;
+    flex-direction: column;
+}
+
+.polaroid:nth-child(1) { --rotation: -1.5deg; } 
+.polaroid:nth-child(2) { --rotation: 2deg; } 
+.polaroid:nth-child(3) { --rotation: 1deg; } 
+.polaroid:nth-child(4) { --rotation: -2deg; }
+
+.polaroid:hover { 
+    transform: scale(1.05) rotate(0deg); 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); 
+    z-index: 5; 
+}
+
+/* Fuerza un cuadrado perfecto sin estirar ni deformar la imagen original */
+.polaroid img { 
+    width: 100%; 
+    aspect-ratio: 1 / 1; 
+    object-fit: cover; 
+    border-radius: 2px; 
+}
+
+.caption { 
+    font-family: 'Georgia', serif; 
+    font-size: 0.8rem; 
+    color: #555; 
+    margin: 10px 0 0 0; 
+    font-style: italic; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    text-align: center;
+}
+
+/* --- SECCIÓN DE CARTAS --- */
 .sobres-container { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
 .btn-carta { background-color: #ff4d6d; color: white; border: none; padding: 10px 18px; border-radius: 50px; cursor: pointer; font-weight: bold; transition: transform 0.2s, background-color 0.2s; box-shadow: 0 4px 6px rgba(255, 77, 109, 0.15); }
 .btn-carta:hover { background-color: #c9184a; transform: translateY(-2px); }
@@ -235,19 +298,16 @@ hr { border: 0; height: 1px; background: #ffccd5; margin: 20px 0; }
 .cerrar-lightbox { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 40px; cursor: pointer; }
 @keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
-
 /* --- ANIMACIÓN Y ESTILOS PARA LA LLUVIA DE FOTOS --- */
-
-/* Asegurar que el contenedor de cumple permita elementos flotando de fondo */
 .fullscreen-cumple {
     position: relative;
-    overflow: hidden; /* Evita que las fotos se salgan antes de desaparecer */
+    overflow: hidden; 
 }
 
 .foto-cayendo {
     position: absolute;
-    top: -120px; /* Inicia justo arriba, fuera de la tarjeta */
-    width: 75px; /* Tamaño tierno y compacto para que no tape el pastel */
+    top: -120px; 
+    width: 75px; 
     background: white;
     padding: 6px 6px 12px 6px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
@@ -255,15 +315,14 @@ hr { border: 0; height: 1px; background: #ffccd5; margin: 20px 0; }
     border-radius: 2px;
     cursor: pointer;
     user-select: none;
-    z-index: 1; /* Por detrás de los botones principales pero visible en el fondo */
+    z-index: 1; 
     animation: caerContínuo linear forwards;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Efecto sutil al pasar el mouse antes de darle clic */
 .foto-cayendo:hover {
     box-shadow: 0 8px 25px rgba(255, 77, 109, 0.4);
-    transform: scale(1.1) !important; /* El !important evita el conflicto con la rotación inline */
+    transform: scale(1.1) !important; 
     z-index: 10;
 }
 
@@ -274,27 +333,26 @@ hr { border: 0; height: 1px; background: #ffccd5; margin: 20px 0; }
     border-radius: 1px;
 }
 
-/* Keyframe que maneja el descenso total */
 @keyframes caerContínuo {
     0% {
         top: -120px;
         opacity: 0;
     }
     10% {
-        opacity: 1; /* Aparece suavemente al entrar */
+        opacity: 1; 
     }
     90% {
         opacity: 1;
     }
     100% {
-        top: 105%; /* Llega hasta abajo del contenedor y se pasa un poco */
-        opacity: 0; /* Se desvanece antes de ser eliminada */
+        top: 105%; 
+        opacity: 0; 
     }
 }
 
-
+/* --- SECCIÓN CUENTA REGRESIVA CUMPLEAÑOS --- */
 .cumple-countdown-container {
-    background-color: #fff0f5; /* Un tono rosa pastel muy suave */
+    background-color: #fff0f5; 
     border: 2px dashed #ff69b4;
     border-radius: 15px;
     padding: 15px;
@@ -302,6 +360,7 @@ hr { border: 0; height: 1px; background: #ffccd5; margin: 20px 0; }
     max-width: 500px;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    box-sizing: border-box;
 }
 
 .cumple-countdown-container h3 {
