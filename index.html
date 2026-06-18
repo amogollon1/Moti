@@ -3,26 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nosotros</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>❤️</text></svg>">
+    <title>Moti ❤️</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 
-    <div class="main-wrapper">
+    <audio id="musica-cumple" src="audio/cumple.mp3" loop></audio>
+
+    <div id="pantalla-cumpleanios" class="fullscreen-cumple ocultar-pantalla">
+        
+        <button id="btn-musica" class="btn-flotante-musica" onclick="controlarMusica()">
+            <i class="fa-solid fa-music"></i> <span>Reproducir Música</span>
+        </button>
+
+        <div class="cumple-contenido-centrado">
+            <div class="globos-header">🎈🎉 ¡FELIZ CUMPLEAÑOS MOCHI! 🎉🎈</div>
+            <h1 class="titulo-cumple">¡Hoy es tu día especial, Natalia!</h1>
+            <p class="dedicatoria-cumple">Te amo con todo mi corazón. Pide un deseo...</p>
+
+            <div class="pastel-centrado-wrapper" onclick="soplarVelas()">
+                <div class="velas-fuego" id="fuego-vela">🔥</div>
+                <div class="pastel-reeses">
+                    <div class="crema-superior"></div>
+                    <div class="chocolates-top">
+                        <span class="copete"></span>
+                        <span class="copete"></span>
+                        <span class="copete"></span>
+                        <span class="copete"></span>
+                        <span class="copete"></span>
+                    </div>
+                </div>
+                <div class="cuerpo-pastel">
+                    <div class="linea-galleta"></div>
+                </div>
+            </div>
+
+            <p class="instruccion-pastel">¡Mochi, dale clic al pastel de Reese's para soplar la vela! 🕯️</p>
+            
+            <button class="btn-mas-confeti" onclick="lanzarConfettiExplosivo()">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> ¡Más Confeti! 🎉
+            </button>
+        </div>
+    </div>
+
+
+    <div id="main-wrapper" class="main-wrapper">
         
         <div class="card-principal">
             <h1>Nuestra Historia</h1>
             <p class="subtitle">El tiempo que llevamos juntos mochi:</p>
             
+            <div class="cumple-countdown-container">
+                <h3> Cuenta regresiva para tu cumple: </h3>
+                <div id="countdown-cumple" class="cumple-timer">
+                    <div class="timer-box"><span id="cumple-dias">00</span><p>Días</p></div>
+                    <div class="timer-box"><span id="cumple-horas">00</span><p>Horas</p></div>
+                    <div class="timer-box"><span id="cumple-min">00</span><p>Min</p></div>
+                    <div class="timer-box"><span id="cumple-seg">00</span><p>Seg</p></div>
+                </div>
+            </div>
+
+
+
+
             <div id="contador">Cargando nuestro tiempo...</div>
 
             <hr>
 
             <div class="sorpresa-mes">
                 <h2>Otro mes a tu lado</h2>
-                <div id="contenido-mensual">
-                    </div>
+                <div id="contenido-mensual"></div>
             </div>
         </div>
 
@@ -30,7 +83,7 @@
             <h3>Nuestras fotitas</h3>
             <p class="instruccion">Dale clic para verlas en grande</p>
             
-            <div class="grid-cuadrado-perfecto">
+            <!-- <div class="grid-cuadrado-perfecto">
                 <div class="polaroid" onclick="ampliarFoto(this)">
                     <img src="img/besoRamo.jpg" alt="Nuestro primer día">
                     <p class="caption">Amo la sensación al besarte</p>
@@ -50,9 +103,30 @@
                     <img src="img/parque.jpg" alt="Momento divertido">
                     <p class="caption">Nunca olvido nuestras charlas en la banquita</p>
                 </div>
-            </div>
+            </div> -->
 
+            <div class="grid-cuadrado-perfecto">
+                <div class="polaroid" onclick="ampliarFoto(this)">
+                    <img src="img/hoy1.jpg" alt="Nuestro primer día">
+                    <p class="caption">Nos amo</p>
+                </div>
+                
+                <div class="polaroid" onclick="ampliarFoto(this)">
+                    <img src="img/hoy2.jpg" alt="Cita especial">
+                    <p class="caption">Salí guapo</p>
+                </div>
+
+                <div class="polaroid" onclick="ampliarFoto(this)">
+                    <img src="img/hoy3.jpg" alt="Viaje juntos">
+                    <p class="caption">Hermosa me gustas mucho</p>
+                </div>
+
+                <div class="polaroid" onclick="ampliarFoto(this)">
+                    <img src="img/hoy4.jpg" alt="Momento divertido">
+                    <p class="caption">Que dico</p>
+                </div>
             </div>
+        </div>
 
         <div class="card-cartas">
             <h3>Tus Cartas Especiales</h3>
