@@ -11,17 +11,186 @@ body {
     padding: 40px 0;
 }
 
-/* Contenedor maestro que alinea todo verticalmente y centrado */
 .main-wrapper {
     display: flex;
     flex-direction: column;
     gap: 30px;
     width: 90%;
-    max-width: 600px; /* Evita que se estire demasiado en pantallas anchas */
+    max-width: 600px;
     align-items: center;
 }
 
-/* Tarjetas base blancas para separar limpiamente las secciones */
+/* Ocultar elementos limpiamente */
+.ocultar-pantalla {
+    display: none !important;
+}
+
+/* --- ESTILOS DE LA PANTALLA COMPLETA DE CUMPLEAÑOS --- */
+.fullscreen-cumple {
+    background-color: white;
+    width: 90%;
+    max-width: 550px;
+    padding: 40px 30px;
+    border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(255, 183, 3, 0.25);
+    border: 3px solid #ffccd5;
+    text-align: center;
+    box-sizing: border-box;
+    animation: zoomEntrada 0.4s ease-out;
+}
+
+@keyframes zoomEntrada {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.cumple-contenido-centrado {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.globos-header {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #ff4d6d;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.titulo-cumple {
+    font-size: 1.8em;
+    color: #ff4d6d;
+    margin: 5px 0 10px 0;
+}
+
+.dedicatoria-cumple {
+    font-size: 1.05em;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 25px;
+}
+
+/* --- PASTEL DE REESE'S MEJORADO Y CENTRADO --- */
+.pastel-centrado-wrapper {
+    width: 170px;
+    margin: 35px auto 20px auto;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.2s ease;
+}
+.pastel-centrado-wrapper:hover {
+    transform: scale(1.03);
+}
+
+.velas-fuego {
+    font-size: 2.2em;
+    position: absolute;
+    top: -38px;
+    left: 41%;
+    animation: balanceoVela 0.6s infinite alternate;
+}
+
+.pastel-reeses {
+    background-color: #5c3214; /* Tono Chocolate Oscuro Reese's */
+    height: 55px;
+    border-radius: 12px 12px 0 0;
+    position: relative;
+    border-bottom: 6px solid #ffb703; /* Línea de Crema de Maní Intensa */
+}
+
+.crema-superior {
+    background-color: #ffb703; /* Bañado superior Reese's */
+    height: 8px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    border-radius: 12px 12px 0 0;
+}
+
+/* Chocolatitos miniatura decorativos arriba */
+.chocolates-top {
+    position: absolute;
+    top: -6px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+.chocolates-top .copete {
+    background-color: #40220c;
+    width: 12px;
+    height: 10px;
+    border-radius: 3px 3px 0 0;
+}
+
+.cuerpo-pastel {
+    background-color: #4a280f;
+    height: 50px;
+    border-radius: 0 0 12px 12px;
+    position: relative;
+}
+
+.linea-galleta {
+    background-color: #ffccd5;
+    height: 4px;
+    width: 100%;
+    position: absolute;
+    top: 45%;
+    opacity: 0.4;
+}
+
+.instruccion-pastel {
+    font-size: 0.9em;
+    color: #777;
+    margin-top: 15px;
+    font-style: italic;
+}
+
+/* --- BOTONES DE LA PANTALLA DE CUMPLE --- */
+.btn-flotante-musica {
+    background-color: #ffb703;
+    color: #222;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.9em;
+    box-shadow: 0 4px 10px rgba(255, 183, 3, 0.3);
+    margin-bottom: 15px;
+    transition: transform 0.2s, background-color 0.2s;
+}
+.btn-flotante-musica:hover {
+    background-color: #e5a100;
+    transform: translateY(-2px);
+}
+
+.btn-mas-confeti {
+    background-color: #ff4d6d;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(255, 77, 109, 0.3);
+    margin-top: 25px;
+    transition: transform 0.2s;
+}
+.btn-mas-confeti:hover {
+    transform: scale(1.05);
+    background-color: #c9184a;
+}
+
+@keyframes balanceoVela {
+    from { transform: translateY(0) scale(1); }
+    to { transform: translateY(-4px) scale(1.08); }
+}
+
+/* [Mantén aquí abajo el resto de tus estilos normales de .card-principal, .polaroid, etc.] */
 .card-principal, .card-galeria, .card-cartas {
     background-color: white;
     padding: 30px;
@@ -32,228 +201,141 @@ body {
     box-sizing: border-box;
 }
 
-h1, h2, h3 {
-    color: #ff4d6d;
-    margin-top: 0;
+h1, h2, h3 { color: #ff4d6d; margin-top: 0; margin-bottom: 10px; }
+.subtitle { font-style: italic; color: #7a7a7a; margin-bottom: 25px; }
+.instruccion { font-size: 0.85em; color: #888; margin-bottom: 20px; }
+
+#contador { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 15px; }
+.tiempo-bloque { background-color: #fff0f3; padding: 10px; border-radius: 10px; border: 1px solid #ffccd5; font-size: 0.85em; color: #ff4d6d; font-weight: bold; }
+.tiempo-bloque span { display: block; font-size: 1.6em; color: #c9184a; }
+hr { border: 0; height: 1px; background: #ffccd5; margin: 20px 0; }
+.sorpresa-mes { background-color: #fffbf0; padding: 20px; border-radius: 15px; border: 1px dashed #ffb703; }
+
+.grid-cuadrado-perfecto { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; width: 100%; margin: 0 auto; }
+.polaroid { background: white; padding: 10px 10px 15px 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); border: 1px solid #f0f0f0; transform: rotate(var(--rotation, 0deg)); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; box-sizing: border-box; }
+.polaroid:nth-child(1) { --rotation: -1.5deg; } .polaroid:nth-child(2) { --rotation: 2deg; } .polaroid:nth-child(3) { --rotation: 1deg; } .polaroid:nth-child(4) { --rotation: -2deg; }
+.polaroid:hover { transform: scale(1.05) rotate(0deg); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); z-index: 5; }
+.polaroid img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 2px; }
+.caption { font-family: 'Georgia', serif; font-size: 0.75em; color: #555; margin: 10px 0 0 0; font-style: italic; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.sobres-container { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+.btn-carta { background-color: #ff4d6d; color: white; border: none; padding: 10px 18px; border-radius: 50px; cursor: pointer; font-weight: bold; transition: transform 0.2s, background-color 0.2s; box-shadow: 0 4px 6px rgba(255, 77, 109, 0.15); }
+.btn-carta:hover { background-color: #c9184a; transform: translateY(-2px); }
+
+.modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.4); justify-content: center; align-items: center; }
+.modal-contenido { background-color: #fffbf4; padding: 30px; border-radius: 15px; width: 85%; max-width: 400px; position: relative; box-shadow: 0 5px 20px rgba(0,0,0,0.25); animation: aparecer 0.25s ease-out; }
+@keyframes aparecer { from { transform: scale(0.85); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.cerrar-modal { position: absolute; top: 10px; right: 15px; color: #aaa; font-size: 28px; font-weight: bold; cursor: pointer; }
+.cerrar-modal:hover { color: #ff4d6d; }
+.carta-papel { font-family: 'Georgia', serif; line-height: 1.6; color: #3a3a3a; text-align: left; white-space: pre-line; }
+
+.modal-lightbox { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.85); justify-content: center; flex-direction: column; align-items: center; }
+.modal-lightbox img { max-width: 85%; max-height: 75vh; border-radius: 4px; box-shadow: 0 5px 25px rgba(0,0,0,0.5); animation: zoomIn 0.2s ease; }
+#caption-ampliado { color: #eee; font-family: 'Georgia', serif; margin-top: 15px; font-style: italic; }
+.cerrar-lightbox { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 40px; cursor: pointer; }
+@keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+
+/* --- ANIMACIÓN Y ESTILOS PARA LA LLUVIA DE FOTOS --- */
+
+/* Asegurar que el contenedor de cumple permita elementos flotando de fondo */
+.fullscreen-cumple {
+    position: relative;
+    overflow: hidden; /* Evita que las fotos se salgan antes de desaparecer */
+}
+
+.foto-cayendo {
+    position: absolute;
+    top: -120px; /* Inicia justo arriba, fuera de la tarjeta */
+    width: 75px; /* Tamaño tierno y compacto para que no tape el pastel */
+    background: white;
+    padding: 6px 6px 12px 6px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    cursor: pointer;
+    user-select: none;
+    z-index: 1; /* Por detrás de los botones principales pero visible en el fondo */
+    animation: caerContínuo linear forwards;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efecto sutil al pasar el mouse antes de darle clic */
+.foto-cayendo:hover {
+    box-shadow: 0 8px 25px rgba(255, 77, 109, 0.4);
+    transform: scale(1.1) !important; /* El !important evita el conflicto con la rotación inline */
+    z-index: 10;
+}
+
+.foto-cayendo img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 1px;
+}
+
+/* Keyframe que maneja el descenso total */
+@keyframes caerContínuo {
+    0% {
+        top: -120px;
+        opacity: 0;
+    }
+    10% {
+        opacity: 1; /* Aparece suavemente al entrar */
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        top: 105%; /* Llega hasta abajo del contenedor y se pasa un poco */
+        opacity: 0; /* Se desvanece antes de ser eliminada */
+    }
+}
+
+
+.cumple-countdown-container {
+    background-color: #fff0f5; /* Un tono rosa pastel muy suave */
+    border: 2px dashed #ff69b4;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 20px auto;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.cumple-countdown-container h3 {
+    color: #ff4500;
+    font-size: 1.1rem;
     margin-bottom: 10px;
 }
 
-.subtitle {
-    font-style: italic;
-    color: #7a7a7a;
-    margin-bottom: 25px;
-}
-
-.instruccion {
-    font-size: 0.85em;
-    color: #888;
-    margin-bottom: 20px;
-}
-
-/* --- CONTADOR --- */
-#contador {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    margin-bottom: 15px;
-}
-
-.tiempo-bloque {
-    background-color: #fff0f3;
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid #ffccd5;
-    font-size: 0.85em;
-    color: #ff4d6d;
-    font-weight: bold;
-}
-
-.tiempo-bloque span {
-    display: block;
-    font-size: 1.6em;
-    color: #c9184a;
-}
-
-hr {
-    border: 0;
-    height: 1px;
-    background: #ffccd5;
-    margin: 20px 0;
-}
-
-.sorpresa-mes {
-    background-color: #fffbf0;
-    padding: 20px;
-    border-radius: 15px;
-    border: 1px dashed #ffb703;
-}
-
-/* --- CUADRÍCULA SIMÉTRICA 2X2 DE FOTOS --- */
-.grid-cuadrado-perfecto {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 Columnas idénticas */
-    grid-template-rows: repeat(2, 1fr);    /* 2 Filas idénticas */
-    gap: 20px;
-    width: 100%;
+.cumple-timer {
+    display: table;
     margin: 0 auto;
-}
-
-.polaroid {
-    background: white;
-    padding: 10px 10px 15px 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-    border: 1px solid #f0f0f0;
-    transform: rotate(var(--rotation, 0deg));
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    box-sizing: border-box;
-}
-
-/* Pequeño desorden controlado tierno */
-.polaroid:nth-child(1) { --rotation: -1.5deg; }
-.polaroid:nth-child(2) { --rotation: 2deg; }
-.polaroid:nth-child(3) { --rotation: 1deg; }
-.polaroid:nth-child(4) { --rotation: -2deg; }
-
-.polaroid:hover {
-    transform: scale(1.05) rotate(0deg);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-    z-index: 5;
-}
-
-.polaroid img {
     width: 100%;
-    aspect-ratio: 1 / 1; /* Relación de aspecto cuadrada 1:1 exacta */
-    object-fit: cover;
-    border-radius: 2px;
 }
 
-.caption {
-    font-family: 'Georgia', serif;
-    font-size: 0.75em;
-    color: #555;
-    margin: 10px 0 0 0;
-    font-style: italic;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis; /* Evita que textos largos rompan el cuadro */
+.timer-box {
+    display: table-cell;
+    width: 25%;
+    text-align: center;
+    padding: 5px;
 }
 
-/* --- BOTONES DE LAS CARTAS --- */
-.sobres-container {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-}
-
-.btn-carta {
-    background-color: #ff4d6d;
-    color: white;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 50px;
-    cursor: pointer;
+.timer-box span {
+    font-size: 1.5rem;
     font-weight: bold;
-    transition: transform 0.2s, background-color 0.2s;
-    box-shadow: 0 4px 6px rgba(255, 77, 109, 0.15);
+    color: #d23272;
+    background: #ffffff;
+    display: block;
+    padding: 5px;
+    border-radius: 8px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
 }
 
-.btn-carta:hover {
-    background-color: #c9184a;
-    transform: translateY(-2px);
-}
-
-/* --- MODAL (CARTAS EMERGEN) --- */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    justify-content: center;
-    align-items: center;
-}
-
-.modal-contenido {
-    background-color: #fffbf4;
-    padding: 30px;
-    border-radius: 15px;
-    width: 85%;
-    max-width: 400px;
-    position: relative;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.25);
-    animation: aparecer 0.25s ease-out;
-}
-
-@keyframes aparecer {
-    from { transform: scale(0.85); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-}
-
-.cerrar-modal {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    color: #aaa;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.cerrar-modal:hover { color: #ff4d6d; }
-
-.carta-papel {
-    font-family: 'Georgia', serif;
-    line-height: 1.6;
-    color: #3a3a3a;
-    text-align: left;
-    white-space: pre-line;
-}
-
-/* --- LIGHTBOX (IMÁGENES AMPLIADAS) --- */
-.modal-lightbox {
-    display: none;
-    position: fixed;
-    z-index: 2000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.85);
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-}
-
-.modal-lightbox img {
-    max-width: 85%;
-    max-height: 75vh;
-    border-radius: 4px;
-    box-shadow: 0 5px 25px rgba(0,0,0,0.5);
-    animation: zoomIn 0.2s ease;
-}
-
-#caption-ampliado {
-    color: #eee;
-    font-family: 'Georgia', serif;
-    margin-top: 15px;
-    font-style: italic;
-}
-
-.cerrar-lightbox {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    color: #fff;
-    font-size: 40px;
-    cursor: pointer;
-}
-
-@keyframes zoomIn {
-    from { transform: scale(0.9); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
+.timer-box p {
+    font-size: 0.8rem;
+    margin: 5px 0 0 0;
+    color: #666;
 }
