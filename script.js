@@ -3,7 +3,7 @@ const fechaInicio = new Date(2025, 4, 3, 0, 0, 0); // 3 de mayo de 2025
 
 // Cumpleaños de Natalia
 const MES_CUMPLE = 6;  // Junio
-const DIA_CUMPLE = 18; // Cambia a 16 o 17 para pruebas
+const DIA_CUMPLE = 28; // Cambia a 16 o 17 para pruebas
 
 // 2. CONTROL DEL CAMBIO DE PANTALLA TOTAL
 function evaluarPantallaCumpleanios() {
