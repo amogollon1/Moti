@@ -3,7 +3,7 @@ const fechaInicio = new Date(2025, 4, 3, 0, 0, 0); // 3 de mayo de 2025
 
 // Cumpleaños de Natalia
 const MES_CUMPLE = 6;  // Junio
-const DIA_CUMPLE = 28; // Cambia a 16 o 17 para pruebas
+const DIA_CUMPLE = 18; // Cambia a 16 o 17 para pruebas
 
 // 2. CONTROL DEL CAMBIO DE PANTALLA TOTAL
 function evaluarPantallaCumpleanios() {
@@ -18,7 +18,7 @@ function evaluarPantallaCumpleanios() {
         // ACTIVAR MODO CUMPLEAÑOS TOTAL
         pantallaCumple.classList.remove("ocultar-pantalla");
         pantallaAniversario.classList.add("ocultar-pantalla");
-        document.body.style.backgroundColor = "#fff5f5"; 
+        document.body.style.overflowX = "hidden"; // Evita barras laterales
 
         // Ráfaga automática de confeti al entrar
         setTimeout(() => {
@@ -26,8 +26,9 @@ function evaluarPantallaCumpleanios() {
             setTimeout(lanzarConfettiExplosivo, 800);
         }, 500);
 
-        // INICIAR LA LLUVIA DE FOTOS
+        // INICIAR LA LLUVIA DE FOTOS Y GLOBOS
         crearLluviaDeFotos();
+        iniciarLluviaDeGlobos();
 
     } else {
         // MODO ANIVERSARIO NORMAL
@@ -36,10 +37,56 @@ function evaluarPantallaCumpleanios() {
     }
 }
 
+// NUEVA FUNCIÓN: Lógica dinámica de globos flotantes de fondo
+function iniciarLluviaDeGlobos() {
+    const coloresGlobos = [
+        'rgba(255, 105, 180, 0.75)',  /* Rosa Intenso */
+        'rgba(255, 182, 193, 0.75)',  /* Rosa Pastel */
+        'rgba(255, 218, 185, 0.75)',  /* Durazno tierno */
+        'rgba(224, 187, 228, 0.75)',  /* Lila suave */
+        'rgba(255, 253, 171, 0.75)'   /* Amarillo claro */
+    ];
+
+    setInterval(() => {
+        // Detener si por alguna razón la pantalla cambia de estado
+        if (document.getElementById("pantalla-cumpleanios").classList.contains("ocultar-pantalla")) return;
+
+        const globo = document.createElement("div");
+        globo.classList.add("globo-flotante");
+
+        // Configuración aleatoria de apariencia y físicas
+        const colorAleatorio = coloresGlobos[Math.floor(Math.random() * coloresGlobos.length)];
+        const posicionX = Math.random() * 90 + 5; // Posición horizontal en pantalla
+        const escala = Math.random() * 0.5 + 0.7; // Tamaños variados tiernos
+        const duracion = Math.random() * 5 + 8;    // Velocidad de subida (8 a 13 seg)
+
+        // Estilos dinámicos
+        globo.style.backgroundColor = colorAleatorio;
+        globo.style.left = `${posicionX}%`;
+        globo.style.transform = `scale(${escala})`;
+        globo.style.animationDuration = `${duracion}s`;
+
+        // Pequeña corrección para pintar el nudo del mismo color que el cuerpo
+        globo.style.setProperty('border-bottom-color', colorAleatorio);
+
+        // Añadir el hilo decorativo colgando
+        const hilo = document.createElement("div");
+        hilo.classList.add("hilo-globo");
+        globo.appendChild(hilo);
+
+        document.body.appendChild(globo);
+
+        // Remover el elemento del DOM una vez termine el viaje hacia arriba
+        setTimeout(() => {
+            globo.remove();
+        }, duracion * 1000);
+
+    }, 1200); // Crea un nuevo globo de fondo cada 1.2 segundos
+}
+
 function crearLluviaDeFotos() {
     const pantallaCumple = document.getElementById("pantalla-cumpleanios");
     
-    // BANCO DE FOTOS EXCLUSIVO CORREGIDO (Se añadieron las comas faltantes)
     const fotosCumpleanios = [
         { src: 'img/abrazoJaviJuli.jpg', cap: '¡Te amamos mi amor!' },
         { src: 'img/abrazoJMBR.jpg', cap: 'Nada se compara con tus abrazos baby.' },
@@ -49,7 +96,6 @@ function crearLluviaDeFotos() {
         { src: 'img/piscina.jpg', cap: 'Haces los días especiales mucho más especiales ❤️.' }
     ];
 
-    // Generar una foto flotante cada 2.5 segundos
     setInterval(() => {
         if (pantallaCumple.classList.contains("ocultar-pantalla")) return;
 
@@ -143,19 +189,13 @@ function cargarContenidoMensual(mesesTotales) {
         case 12:
             contenedor.innerHTML = `
                 <h3>¡Feliz 1 Año Juntos!</h3>
-                <p>Es increíble pensar en todo el tiempo que un año significa mi amor, es algo que jamás imaginé vivir con alguien y que ahora no puedo imaginar si no es contigo.</p>
+                <p>Es increíble pensar en todo el tiempo que un año significa mi amor, es algo que jamás imaginé vivir con alguien y que ahora no puedo imagine si no es contigo.</p>
             `;
             break;
         case 13:
             contenedor.innerHTML = `
                 <h3>¡Felices 13 meses mi amor! 🥰</h3>
-                <p>¡Hola mi amor! Esta vez mi carta es un poco diferente, ya que no es física, pero es la primera que te daré por acá. 
-                Mi amor este es nuestro décimo tercer mes como pareja y estoy muy feliz de poder decirlo mi amor, muchas "parejas" apenas y llegan a amarse, 
-                mientras nosotros llevamos desde el día 1 haciendolo, demostrando y luchando por lo nuestro. Un mes más no suena tan impresionante luego de cumplir un año, 
-                pero sí que lo es porque un mes se dice muy rápido, pero son 4 semanas, 31 días y muchas historias y momentos inolvidables a tu lado, 
-                son experiencias que por más que pasen los meses, semnas y días, siguen siendo tan genuinos y especiales como la primera vez. 
-                Natalia, fuiste mi primera vez en muchas cosas, cosas que para mí son tan valiosas y únicas y de las que estoy muy agradecido con Dios 
-                por darme la oportunidad de vivir con nadie más que contigo. Te amo mucho mi amor, felices 13 meses.</p>
+                <p>¡Hola mi amor! Esta vez mi carta es un poco diferente, ya que no es física, pero es la primera que te daré por acá. Mi amor este es nuestro décimo tercer mes como pareja y estoy muy feliz de poder decirlo mi amor. Te amo mucho mi amor, felices 13 meses.</p>
             `;
             break;
         default:
@@ -166,10 +206,10 @@ function cargarContenidoMensual(mesesTotales) {
     }
 }
 
-// 5. CARTAS CORREGIDAS (Texto en una sola línea)
+// 5. CARTAS CORREGIDAS
 const misCartas = {
     1: "Hola mi amor, espero te guste mucho esta pequeña página donde podremos poner algunas de las fotos y llevar un contador de cuanto tiempo llevamos siendo pareja. TE AMOS SIXSEVEN MILLONES MÁS.",
-    2: "Hola mi amor, hoy la pasé muy bien, fue como dar un gran suspiro luego de unos días llenos de emociones un poco agridulces, extrañaba tanto sentarme contigo a platicar (comer jiji) y disfrutar de lindos momentos juntos. Hoy estabas muy guapa, me encantó como te veías en tu outfit, te queda perfecto. Muchas gracias por este lindo día amor. Te amo.",
+    2: "Hola mi amor, hoy la pasé muy bien, fue como dar un gran suspiro luego de unos días llenos de emociones un poco agridulces, extrañaba tanto sentarme contigo a platicar... Te amo.",
     3: "Cooming Soon! Te amo pequitas."
 };
 
@@ -244,22 +284,11 @@ window.onclick = function(event) {
     }
 }
 
-// INICIALIZACIÓN GENERAL
-document.addEventListener("DOMContentLoaded", () => {
-    evaluarPantallaCumpleanios();
-    const mesesCumplidos = actualizarContador();
-    cargarContenidoMensual(mesesCumplidos);
-    setInterval(actualizarContador, 1000);
-});
-
-
 function actualizarCuentaRegresivaCumple() {
     const ahora = new Date();
     const añoActual = ahora.getFullYear();
-    // El mes de Junio es el índice 5 en JavaScript (0 = Enero, 11 = Diciembre)
     let fechaCumple = new Date(añoActual, 5, 28, 0, 0, 0);
 
-    // Si el cumpleaños de este año ya pasó, calcula para el próximo año
     if (ahora > fechaCumple) {
         fechaCumple.setFullYear(añoActual + 1);
     }
@@ -271,13 +300,26 @@ function actualizarCuentaRegresivaCumple() {
     const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
     const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
 
-    document.getElementById('cumple-dias').innerText = dias.toString().padStart(2, '0');
-    document.getElementById('cumple-horas').innerText = horas.toString().padStart(2, '0');
-    document.getElementById('cumple-min').innerText = minutos.toString().padStart(2, '0');
-    document.getElementById('cumple-seg').innerText = segundos.toString().padStart(2, '0');
+    const dEl = document.getElementById('cumple-dias');
+    const hEl = document.getElementById('cumple-horas');
+    const mEl = document.getElementById('cumple-min');
+    const sEl = document.getElementById('cumple-seg');
+
+    if (dEl && hEl && mEl && sEl) {
+        dEl.innerText = dias.toString().padStart(2, '0');
+        hEl.innerText = horas.toString().padStart(2, '0');
+        mEl.innerText = minutos.toString().padStart(2, '0');
+        sEl.innerText = segundos.toString().padStart(2, '0');
+    }
 }
 
-// Ejecutar cada segundo
-setInterval(actualizarCuentaRegresivaCumple, 1000);
-// Ejecutar inmediatamente al cargar la página
-actualizarCuentaRegresivaCumple();
+// INICIALIZACIÓN GENERAL
+document.addEventListener("DOMContentLoaded", () => {
+    evaluarPantallaCumpleanios();
+    const mesesCumplidos = actualizarContador();
+    cargarContenidoMensual(mesesCumplidos);
+    setInterval(actualizarContador, 1000);
+    
+    setInterval(actualizarCuentaRegresivaCumple, 1000);
+    actualizarCuentaRegresivaCumple();
+});
