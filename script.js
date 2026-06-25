@@ -209,8 +209,8 @@ function cargarContenidoMensual(mesesTotales) {
 // 5. CARTAS CORREGIDAS
 const misCartas = {
     1: "Hola mi amor, espero te guste mucho esta pequeña página donde podremos poner algunas de las fotos y llevar un contador de cuanto tiempo llevamos siendo pareja. TE AMOS SIXSEVEN MILLONES MÁS.",
-    2: "Hola mi amor, hoy la pasé muy bien, fue como dar un gran suspiro luego de unos días llenos de emociones un poco agridulces, extrañaba tanto sentarme contigo a platicar... Te amo.",
-    3: "Cooming Soon! Te amo pequitas."
+    2: "Hola mi amor, hoy la pasé muy bien, fue como dar un gran suspiro luego de unos días llenos de emociones un poco agridulces, extrañaba tanto sentarme contigo a platicar (comer jiji), olvidarnos un poco del mundo y disfrutar de nuestro mundo, el cual poco a poco vamos construyendo y mejorando para volverlo en ese que tanto soñamos. Te amo.",
+    3: "Si lees esto mandame un audio rapeando sobre kiki, hachi, alejandrinho y yo. Te amo pequitas."
 };
 
 function abrirCarta(numeroCarta) {
